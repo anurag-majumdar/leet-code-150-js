@@ -33,7 +33,8 @@ const invertTreeIterative = (root) => {
     const queue = [root];
     while (queue.length > 0) {
         const visitedNode = queue.shift();
-        if (!visitedNode) continue;
+        // Required if starting null checks are missing.
+        //if (!visitedNode) continue;
         Utility.swapNodes(visitedNode);
         if (visitedNode.left) queue.push(visitedNode.left);
         if (visitedNode.right) queue.push(visitedNode.right);
