@@ -40,7 +40,7 @@ const findMax = (subList = []) => {
 };
 
 /**
- * O(k * (n-k))
+ * O(k * (n-k)) => O(n * k)
  *
  * @param {number[]} nums
  * @param {number} k
@@ -49,10 +49,10 @@ const findMax = (subList = []) => {
 const maxSlidingWindowSubOptimal = (nums, k) => {
   const n = nums.length;
   const result = [];
-  // (n - k)
+  // O(n - k)
   for (let i = 0; i < n - k + 1; i++) {
-    const subList = nums.slice(i, i + k); // k
-    const currentMax = findMax(subList); // k
+    const subList = nums.slice(i, i + k); // O(k) time & space
+    const currentMax = findMax(subList); // O(k) time
     result.push(currentMax);
   }
   return result;
