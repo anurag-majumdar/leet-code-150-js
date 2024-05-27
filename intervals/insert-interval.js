@@ -28,7 +28,8 @@ const insert = function (intervals, newInterval) {
 };
 
 // LeetCode solution (linear search)
-var insertInterval = function (intervals, newInterval) {
+// O(n) time | O(n) space
+const insertInterval = function (intervals, newInterval) {
     let n = intervals.length,
         i = 0,
         res = [];
