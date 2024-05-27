@@ -28,5 +28,5 @@ const checkOverlap = (interval1, interval2) => {
     return false;
 };
 
-// console.log(merge([[1, 3], [15, 18], [2, 6], [8, 10]]));
+console.log(merge([[1, 3], [15, 18], [2, 6], [8, 10]]));
 console.log(merge([[1, 2], [3, 5], [4, 7], [6, 8], [9, 10]]));
