@@ -1,9 +1,9 @@
 /**
+ * O(nLog(n)) time | O (n) space
+ * 
  * @param {number[][]} intervals
  * @return {number[][]}
  */
-
-// O(nLog(n)) time | O (n) space
 const merge = function (intervals) {
     intervals.sort((a, b) => a[0] - b[0]);
     const mergedIntervals = [intervals[0]];
@@ -26,6 +26,31 @@ const checkOverlap = (interval1, interval2) => {
         return true;
     }
     return false;
+};
+
+/**
+ * O(nLog(n)) time | O (n) space.
+ * More concise code.
+ * 
+ * @param {number[][]} intervals
+ * @return {number[][]}
+ */
+const mergeIntervals = (intervals) => {
+    intervals.sort((a, b) => a[0] - b[0]);
+    const mergedIntervals = [];
+
+    intervals.forEach((interval) => {
+        const lastInterval = mergedIntervals[mergedIntervals.length - 1];
+        // If non-overlapping interval
+        if (mergedIntervals.length === 0 || lastInterval[1] < interval[0]) {
+            mergedIntervals.push(interval);
+        }
+        // If overlapping, keep updating the last retrieved interval
+        else {
+            lastInterval[1] = Math.max(lastInterval[1], interval[1]);
+        }
+    });
+    return mergedIntervals;
 };
 
 console.log(merge([[1, 3], [15, 18], [2, 6], [8, 10]]));
