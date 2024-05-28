@@ -1,10 +1,10 @@
 /**
+ * NeetCode Solution.
+ * 
  * @param {number[][]} intervals
  * @param {number[]} newInterval
  * @return {number[][]}
  */
-
-// NeetCode Solution
 const insert = function (intervals, newInterval) {
     const mergedIntervals = [];
     for (let i = 0; i < intervals.length; i++) {
@@ -35,20 +35,16 @@ const insertInterval = function (intervals, newInterval) {
         res = [];
 
     // Case 1: No overlapping before merging intervals
-    while (i < n) {
-        if (intervals[i][1] < newInterval[0]) {
-            res.push(intervals[i]);
-            i++;
-        }
+    while (i < n && intervals[i][1] < newInterval[0]) {
+        res.push(intervals[i]);
+        i++;
     }
 
     // Case 2: Overlapping and merging intervals
-    while (i < n) {
-        if (newInterval[1] >= intervals[i][0]) {
-            newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
-            newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
-            i++;
-        }
+    while (i < n && newInterval[1] >= intervals[i][0]) {
+        newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+        newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+        i++;
     }
     res.push(newInterval);
 
@@ -59,4 +55,44 @@ const insertInterval = function (intervals, newInterval) {
     }
 
     return res;
+};
+
+
+/**
+ * Binary search solution.
+ * 
+ * @param {number[][]} intervals
+ * @param {number[]} newInterval
+ * @return {number[][]}
+ */
+const binaryInsertInterval = (intervals, newInterval) => {
+    const insertPosition = findInsertPosition(intervals, newInterval);
+    intervals.splice(insertPosition, 0, newInterval);
+    return mergeIntervals(intervals);
+};
+
+const findInsertPosition = (intervals, newInterval) => {
+    let left = 0, right = intervals.length - 1;
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (newInterval[0] > intervals[mid][0]) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+};
+
+const mergeIntervals = (intervals) => {
+    const merged = [];
+    intervals.forEach((interval) => {
+        const lastMerged = merged[merged.length - 1];
+        if (merged.length === 0 || lastMerged[1] < interval[0]) {
+            merged.push(interval);
+        } else {
+            lastMerged[1] = Math.max(lastMerged[1], interval[1]);
+        }
+    });
+    return merged;
 };
