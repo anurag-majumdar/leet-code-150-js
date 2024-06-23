@@ -18,7 +18,6 @@ const maxProfitOptimal = function (prices) {
             left = right;
         }
         if (prices[right] > prices[right + 1]) {
-            atleastOneDip = true;
             totalProfit += maxSellProfit;
             maxSellProfit = 0;
             left = right + 1;
