@@ -39,3 +39,25 @@ const maxProfitOptimal = function (prices) {
     }
     return maxSellProfit;
 };
+
+/**
+ * O(n) solution, different approach.
+ * 
+ * @param {number[]} prices
+ * @return {number}
+ */
+const maxProfitOptimal2 = function (prices) {
+    let minPrice = Infinity;
+    let maxSellProfit = 0;
+    for (let price of prices) {
+        if (price < minPrice) {
+            minPrice = price;
+        }
+
+        const profit = price - minPrice;
+        if (profit > maxSellProfit) {
+            maxSellProfit = profit;
+        }
+    }
+    return maxSellProfit;
+};
