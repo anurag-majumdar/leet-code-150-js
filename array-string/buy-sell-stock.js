@@ -29,7 +29,7 @@ const maxProfitOptimal = function (prices) {
     let maxSellProfit = 0;
     let left = 0, right = 1;
     const n = prices.length;
-    while (left < n && right < n) {
+    while (right < n) {
         if (prices[left] <= prices[right]) {
             maxSellProfit = Math.max(maxSellProfit, prices[right] - prices[left]);
         } else if (prices[left] > prices[right]) {
