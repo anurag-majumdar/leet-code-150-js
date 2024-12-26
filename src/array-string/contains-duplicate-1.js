@@ -1,4 +1,6 @@
 /**
+ * LC 217: Contains Duplicate
+ * 
  * @param {number[]} nums
  * @return {boolean}
  */
@@ -12,3 +14,5 @@ const containsDuplicate = (nums) => {
   }
   return false;
 };
+
+module.exports = containsDuplicate; 
