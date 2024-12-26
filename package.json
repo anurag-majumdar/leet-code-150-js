@@ -1,0 +1,15 @@
+{
+  "name": "leet-code-150",
+  "version": "1.0.0",
+  "description": "Contains solutions to specially curated 150 leet code problems written in JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
