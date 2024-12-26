@@ -20,33 +20,33 @@ const tree = require('./tree').tree1;
 // };
 
 const swap = (node) => {
-    if (!node) return;
+  if (!node) return;
 
-    const tempNode = node.left;
-    node.left = node.right;
-    node.right = tempNode;
+  const tempNode = node.left;
+  node.left = node.right;
+  node.right = tempNode;
 };
 
 const convertToMirrorPointer = (root) => {
-    if (!root) return;
+  if (!root) return;
 
-    swap(root);
-    convertToMirrorPointer(root.left);
-    convertToMirrorPointer(root.right);
+  swap(root);
+  convertToMirrorPointer(root.left);
+  convertToMirrorPointer(root.right);
 };
 
 const invertTreeIterative = (root) => {
-    if (!root) return;
+  if (!root) return;
 
-    const q = [root];
-    while (q.length > 0) {
-        const node = q.shift();
-        if (node) {
-            swap(node);
-            q.push(node.left);
-            q.push(node.right);
-        }
+  const q = [root];
+  while (q.length > 0) {
+    const node = q.shift();
+    if (node) {
+      swap(node);
+      q.push(node.left);
+      q.push(node.right);
     }
+  }
 };
 
 // convertToMirrorRecursive(tree);

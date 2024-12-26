@@ -4,12 +4,14 @@
   "description": "Contains solutions to specially curated 150 leet code problems written in JavaScript.",
   "main": "index.js",
   "scripts": {
+    "lint": "biome check --write ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@biomejs/biome": "^1.9.4",
     "jest": "^29.7.0"
   }
 }

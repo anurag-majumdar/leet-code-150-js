@@ -9,7 +9,7 @@ const searchInsert = (nums, target) => {
   let targetIndex = -1;
 
   while (left <= right) {
-    let mid = Math.floor((left + right) / 2);
+    const mid = Math.floor((left + right) / 2);
 
     if (target > nums[mid]) {
       left = mid + 1;
@@ -27,4 +27,3 @@ const searchInsert = (nums, target) => {
 console.log(searchInsert([1, 3, 5, 6], 0));
 
 // [1, 3, 5, 6], 10
-

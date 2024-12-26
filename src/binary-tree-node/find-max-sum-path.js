@@ -13,34 +13,34 @@ tree.right.left.right = new Node(9);
 tree.right.right.right = new Node(5);
 
 const formMaxSumPathMap = (root, pathList, sum, pathMap) => {
-    if (!root) return;
+  if (!root) return;
 
-    if (!root.left && !root.right) {
-        sum += root.value;
-        pathMap[sum] = [...pathList, root.value];
-        return;
-    }
+  if (!root.left && !root.right) {
+    sum += root.value;
+    pathMap[sum] = [...pathList, root.value];
+    return;
+  }
 
-    formMaxSumPathMap(root.left, [...pathList, root.value], sum + root.value, pathMap);
-    formMaxSumPathMap(root.right, [...pathList, root.value], sum + root.value, pathMap);
+  formMaxSumPathMap(root.left, [...pathList, root.value], sum + root.value, pathMap);
+  formMaxSumPathMap(root.right, [...pathList, root.value], sum + root.value, pathMap);
 };
 
 const printMaxSumPath = (pathMap) => {
-    let maxSum = Number.MIN_VALUE;
+  let maxSum = Number.MIN_VALUE;
 
-    Object.keys(pathMap).forEach((sumKey) => {
-        const sum = JSON.parse(sumKey);
-        if (maxSum < sum) maxSum = sum;
-    });
+  Object.keys(pathMap).forEach((sumKey) => {
+    const sum = JSON.parse(sumKey);
+    if (maxSum < sum) maxSum = sum;
+  });
 
-    console.log(pathMap[maxSum]);
+  console.log(pathMap[maxSum]);
 };
 
 const findMaxSumPath = (tree) => {
-    const pathMap = {};
+  const pathMap = {};
 
-    formMaxSumPathMap(tree, [], 0, pathMap);
-    printMaxSumPath(pathMap);
+  formMaxSumPathMap(tree, [], 0, pathMap);
+  printMaxSumPath(pathMap);
 };
 
 findMaxSumPath(tree);

@@ -1,9 +1,9 @@
 class Node {
-    constructor(value) {
-        this.value = value;
-        this.left = null;
-        this.right = null;
-    }
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
 }
 
 const tree1 = new Node(1);
@@ -71,7 +71,6 @@ sumTree.left.right = new Node(5);
 sumTree.right.left = new Node(6);
 sumTree.right.right = new Node(7);
 
-
 const inPlaceSumTree = new Node(1);
 inPlaceSumTree.left = new Node(2);
 inPlaceSumTree.right = new Node(3);
@@ -81,12 +80,22 @@ inPlaceSumTree.right.right = new Node(6);
 inPlaceSumTree.right.left.left = new Node(7);
 inPlaceSumTree.right.left.right = new Node(8);
 
-const inPlaceSumTree2 = new Node(10); 
-inPlaceSumTree2.left = new Node(-2); 
-inPlaceSumTree2.right = new Node(6); 
-inPlaceSumTree2.left.left = new Node(8); 
-inPlaceSumTree2.left.right = new Node(-4); 
-inPlaceSumTree2.right.left = new Node(7); 
-inPlaceSumTree2.right.right = new Node(5); 
+const inPlaceSumTree2 = new Node(10);
+inPlaceSumTree2.left = new Node(-2);
+inPlaceSumTree2.right = new Node(6);
+inPlaceSumTree2.left.left = new Node(8);
+inPlaceSumTree2.left.right = new Node(-4);
+inPlaceSumTree2.right.left = new Node(7);
+inPlaceSumTree2.right.right = new Node(5);
 
-module.exports = { tree1, tree2, tree3, tree4, tree5, sumTree, inPlaceSumTree, inPlaceSumTree2, Node };
+module.exports = {
+  tree1,
+  tree2,
+  tree3,
+  tree4,
+  tree5,
+  sumTree,
+  inPlaceSumTree,
+  inPlaceSumTree2,
+  Node,
+};

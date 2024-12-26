@@ -7,41 +7,37 @@ let nodeList = [];
 // }
 
 const topViewIterative = (root) => {
+  if (!root) {
+    return;
+  }
 
-    if (!root) {
-        return;
+  const q = [[0, root]];
+  const map = {};
+  let distance;
+
+  while (q.length > 0) {
+    const nodeMeta = q.shift();
+    distance = nodeMeta[0];
+    const node = nodeMeta[1];
+
+    if (!map[distance]) {
+      map[[distance]] = node.value;
     }
 
-    const q = [[0, root]];
-    const map = {};
-    let distance;
-
-    while (q.length > 0) {
-        const nodeMeta = q.shift();
-        distance = nodeMeta[0];
-        const node = nodeMeta[1];
-
-        if (!map[distance]) {
-            map[[distance]] = node.value;
-        }
-
-        if (node.left) {
-            q.push([(distance - 1), node.left]);
-        }
-        if (node.right) {
-            q.push([(distance + 1), node.right]);
-        }
+    if (node.left) {
+      q.push([distance - 1, node.left]);
     }
+    if (node.right) {
+      q.push([distance + 1, node.right]);
+    }
+  }
 
-    Object.values(map).forEach((nodeValue) => {
-        nodeList = [...nodeList, nodeValue];
-    });
-
+  Object.values(map).forEach((nodeValue) => {
+    nodeList = [...nodeList, nodeValue];
+  });
 };
 
-const topViewRecursive = (root) => {
-
-};
+const topViewRecursive = (root) => {};
 
 topViewIterative(tree);
 console.log(nodeList);

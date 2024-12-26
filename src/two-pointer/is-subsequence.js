@@ -3,17 +3,18 @@
  * @param {string} t
  * @return {boolean}
  */
-const isSubsequence = function (s, t) {
-    let i = 0, j = 0;
-    while (i < s.length && j < t.length) {
-        if (s[i] === t[j]) {
-            i++;
-        }
-        j++;
+const isSubsequence = (s, t) => {
+  let i = 0,
+    j = 0;
+  while (i < s.length && j < t.length) {
+    if (s[i] === t[j]) {
+      i++;
     }
-    if (i === s.length) {
-        return true;
-    } else {
-        return false;
-    }
+    j++;
+  }
+  if (i === s.length) {
+    return true;
+  } else {
+    return false;
+  }
 };

@@ -5,13 +5,13 @@
  * @param {number} k
  * @return {number[]}
  */
-var maxSlidingWindowOld = function (nums, k) {
+var maxSlidingWindowOld = (nums, k) => {
   const n = nums.length;
   const maxElemSubSlidingWindow = [];
   if (n === 0 || k > n) {
     return maxElemSubSlidingWindow;
   }
-  let maxElemSub = -Infinity;
+  let maxElemSub = Number.NEGATIVE_INFINITY;
 
   // Detect max element from first k elements.
   for (let i = 0; i < k; i++) {
@@ -21,7 +21,7 @@ var maxSlidingWindowOld = function (nums, k) {
 
   // Detect max element from successive k sized elements
   for (let i = 1; i < n - k + 1; i++) {
-    maxElemSub = -Infinity;
+    maxElemSub = Number.NEGATIVE_INFINITY;
     for (let j = i; j < i + k; j++) {
       maxElemSub = Math.max(nums[j], maxElemSub);
     }
@@ -32,8 +32,8 @@ var maxSlidingWindowOld = function (nums, k) {
 };
 
 const findMax = (subList = []) => {
-  let max = -Infinity;
-  for (let num of subList) {
+  let max = Number.NEGATIVE_INFINITY;
+  for (const num of subList) {
     max = Math.max(num, max);
   }
   return max;

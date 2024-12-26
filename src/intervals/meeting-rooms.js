@@ -1,34 +1,34 @@
 class Interval {
-    constructor(start, end) {
-        this.start = start;
-        this.end = end;
-    }
+  constructor(start, end) {
+    this.start = start;
+    this.end = end;
+  }
 }
 
 /**
-   * @param intervals: an array of meeting time intervals
-   * @return: if a person could attend all meetings
-   */
+ * @param intervals: an array of meeting time intervals
+ * @return: if a person could attend all meetings
+ */
 const canAttendMeetings = (intervals = []) => {
-    intervals.sort((a, b) => a.start - b.start);
-    const n = intervals.length;
-    let i = 1;
-    while (i < n) {
-        const interval1 = intervals[i - 1];
-        const interval2 = intervals[i];
+  intervals.sort((a, b) => a.start - b.start);
+  const n = intervals.length;
+  let i = 1;
+  while (i < n) {
+    const interval1 = intervals[i - 1];
+    const interval2 = intervals[i];
 
-        if (checkOverlap(interval1, interval2)) {
-            return false;
-        }
-        i++;
+    if (checkOverlap(interval1, interval2)) {
+      return false;
     }
-    return true;
+    i++;
+  }
+  return true;
 };
 
 const checkOverlap = (interval1, interval2) => {
-    if (interval1.end > interval2.start) {
-        return true;
-    }
+  if (interval1.end > interval2.start) {
+    return true;
+  }
 };
 
 const i1 = new Interval(0, 30);

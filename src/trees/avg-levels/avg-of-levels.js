@@ -10,27 +10,27 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-const averageOfLevels = function (root) {
-    if (!root) {
-        return [];
-    }
+const averageOfLevels = (root) => {
+  if (!root) {
+    return [];
+  }
 
-    const queue = [root];
-    const result = [];
-    while (queue.length > 0) {
-        let n = queue.length;
-        let sum = 0;
-        for (let i = n; i > 0; i--) {
-            const node = queue.shift();
-            sum += node.val;
-            if (node.left) {
-                queue.push(node.left);
-            }
-            if (node.right) {
-                queue.push(node.right);
-            }
-        }
-        result.push(sum / n);
+  const queue = [root];
+  const result = [];
+  while (queue.length > 0) {
+    const n = queue.length;
+    let sum = 0;
+    for (let i = n; i > 0; i--) {
+      const node = queue.shift();
+      sum += node.val;
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
-    return result;
+    result.push(sum / n);
+  }
+  return result;
 };

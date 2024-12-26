@@ -1,32 +1,34 @@
 class Interval {
-    constructor(start, end) {
-        this.start = start;
-        this.end = end;
-    }
+  constructor(start, end) {
+    this.start = start;
+    this.end = end;
+  }
 }
 
 /**
-   * @param intervals: an array of meeting time intervals
-   * @return: the minimum number of conference rooms required
-   */
+ * @param intervals: an array of meeting time intervals
+ * @return: the minimum number of conference rooms required
+ */
 const minMeetingRooms = (intervals) => {
-    const start = intervals.map(({ start, end }) => start).sort((a, b) => a - b);
-    const end = intervals.map(({ start, end }) => end).sort((a, b) => a - b);
+  const start = intervals.map(({ start, end }) => start).sort((a, b) => a - b);
+  const end = intervals.map(({ start, end }) => end).sort((a, b) => a - b);
 
-    let meetingRooms = 0, count = 0,
-        s = 0, e = 0;
+  let meetingRooms = 0,
+    count = 0,
+    s = 0,
+    e = 0;
 
-    while (s < intervals.length) {
-        if (start[s] < end[e]) {
-            s += 1;
-            count += 1;
-        } else {
-            e += 1;
-            count -= 1;
-        }
-        meetingRooms = Math.max(meetingRooms, count);
+  while (s < intervals.length) {
+    if (start[s] < end[e]) {
+      s += 1;
+      count += 1;
+    } else {
+      e += 1;
+      count -= 1;
     }
-    return meetingRooms;
+    meetingRooms = Math.max(meetingRooms, count);
+  }
+  return meetingRooms;
 };
 
 const i1 = new Interval(0, 30);

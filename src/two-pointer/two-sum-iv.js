@@ -11,27 +11,28 @@
  * @param {number} k
  * @return {boolean}
  */
-var findTarget = function (root, k) {
-    const nums = inorderTraversal(root, []);
-    let left = 0, right = nums.length - 1;
-    while (left < right) {
-        let currentSum = nums[left] + nums[right];
-        if (currentSum === k) {
-            return true;
-        } else if (currentSum < k) {
-            left++;
-        } else {
-            right--;
-        }
+var findTarget = (root, k) => {
+  const nums = inorderTraversal(root, []);
+  let left = 0,
+    right = nums.length - 1;
+  while (left < right) {
+    const currentSum = nums[left] + nums[right];
+    if (currentSum === k) {
+      return true;
+    } else if (currentSum < k) {
+      left++;
+    } else {
+      right--;
     }
-    return false;
+  }
+  return false;
 };
 
 function inorderTraversal(root, nums) {
-    if (root) {
-        inorderTraversal(root.left, nums);
-        nums.push(root.val);
-        inorderTraversal(root.right, nums);
-    }
-    return nums;
+  if (root) {
+    inorderTraversal(root.left, nums);
+    nums.push(root.val);
+    inorderTraversal(root.right, nums);
+  }
+  return nums;
 }

@@ -11,17 +11,17 @@ tree.right.left.left = new Node(8);
 tree.right.left.right = new Node(9);
 
 const rootToLeafPath = (root, pathList) => {
-    if (!root) {
-        return;
-    }
+  if (!root) {
+    return;
+  }
 
-    if (!root.left && !root.right) {
-        console.log([...pathList, root.value]);
-        return;
-    }
+  if (!root.left && !root.right) {
+    console.log([...pathList, root.value]);
+    return;
+  }
 
-    rootToLeafPath(root.left, [...pathList, root.value]);
-    rootToLeafPath(root.right, [...pathList, root.value]);
+  rootToLeafPath(root.left, [...pathList, root.value]);
+  rootToLeafPath(root.right, [...pathList, root.value]);
 };
 
 rootToLeafPath(tree, []);
