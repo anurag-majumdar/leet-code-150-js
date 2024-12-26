@@ -4,7 +4,7 @@
  * @param {number[]} prices
  * @return {number}
  */
-const maxProfitNested = function (prices) {
+const maxProfitNested = (prices) => {
     let maxSellProfit = 0;
     const n = prices.length;
     for (let i = 0; i < n; i++) {
@@ -22,12 +22,13 @@ const maxProfitNested = function (prices) {
  * @param {number[]} prices
  * @return {number}
  */
-const maxProfitOptimal = function (prices) {
+const maxProfitOptimal = (prices) => {
     if (prices.length <= 1) {
         return 0;
     }
     let maxSellProfit = 0;
-    let left = 0, right = 1;
+    let left = 0;
+    let right = 1;
     const n = prices.length;
     while (right < n) {
         if (prices[left] <= prices[right]) {
@@ -46,10 +47,10 @@ const maxProfitOptimal = function (prices) {
  * @param {number[]} prices
  * @return {number}
  */
-const maxProfitOptimal2 = function (prices) {
+const maxProfitOptimal2 = (prices) => {
     let minPrice = Infinity;
     let maxSellProfit = 0;
-    for (let price of prices) {
+    for (const price of prices) {
         if (price < minPrice) {
             minPrice = price;
         }
