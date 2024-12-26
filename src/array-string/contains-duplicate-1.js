@@ -7,9 +7,8 @@ const containsDuplicate = (nums) => {
   for (const num of nums) {
     if (frequencyMap.has(num)) {
       return true;
-    } else {
-      frequencyMap.set(num, 1);
     }
+    frequencyMap.set(num, 1);
   }
   return false;
 };

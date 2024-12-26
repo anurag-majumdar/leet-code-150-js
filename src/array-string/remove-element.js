@@ -7,8 +7,9 @@
  * @return {number}
  */
 const removeElementIdeal = (nums, val) => {
-  let left = 0,
-    right = nums.length - 1;
+  let left = 0;
+  let right = nums.length - 1;
+
   while (left < right) {
     if (nums[left] === val && nums[right] !== val) {
       swap(nums, left, right);
