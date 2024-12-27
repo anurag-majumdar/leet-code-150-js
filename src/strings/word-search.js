@@ -1,29 +1,3 @@
-const searchWord = (pos, wordIndex) => {
-    const [i, j] = pos;
-
-    if (wordIndex === W) {
-      return true;
-    }
-
-    if (board[i][j] !== word[wordIndex]) {
-      return false;
-    }
-
-    tempChar = board[i][j];
-    board[i][j] = '#';
-
-    const found =
-      searchWord(i + 1, j, wordIndex + 1) ||
-      searchWord(i - 1, j, wordIndex + 1) ||
-      searchWord(i, j + 1, wordIndex + 1) ||
-      searchWord(i, j - 1, wordIndex + 1);
-
-    board[i][j] = tempChar;
-    return found;
-  };
-
-
-
 /**
  * LC 79: Word Search
  *
@@ -40,11 +14,31 @@ const exist = (board, word) => {
     return board[0][0] === word;
   }
 
-  
+  const searchWord = (i, j, wordIndex) => {
+    if (wordIndex === W) {
+      return true;
+    }
+
+    if (i < 0 || j < 0 || i >= m || j >= n || board[i][j] !== word[wordIndex]) {
+      return false;
+    }
+
+    const tempChar = board[i][j];
+    board[i][j] = '#';
+
+    const found =
+      searchWord(i + 1, j, wordIndex + 1) ||
+      searchWord(i - 1, j, wordIndex + 1) ||
+      searchWord(i, j + 1, wordIndex + 1) ||
+      searchWord(i, j - 1, wordIndex + 1);
+
+    board[i][j] = tempChar;
+    return found;
+  };
 
   for (let i = 0; i < m; i++) {
     for (let j = 0; j < n; j++) {
-      if (searchWord([i, j], 0)) {
+      if (searchWord(i, j, 0)) {
         return true;
       }
     }
