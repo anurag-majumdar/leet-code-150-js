@@ -1,5 +1,6 @@
 /**
  * LC 79: Word Search
+ * TC: O(m * n * 4^len(word))
  *
  * @param {character[][]} board
  * @param {string} word
