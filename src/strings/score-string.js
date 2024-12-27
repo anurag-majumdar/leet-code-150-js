@@ -1,5 +1,6 @@
 /**
  * LC 3110: Score of a String
+ * TC: O(len(s))
  *
  * @param {string} s
  * @return {number}
