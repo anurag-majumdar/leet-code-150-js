@@ -9,6 +9,7 @@ const exist = (board, word) => {
   const m = board.length;
   const n = board[0].length;
   const W = word.length;
+  const path = new Set();
 
   if (m === 1 && n === 1) {
     return board[0][0] === word;
@@ -19,20 +20,28 @@ const exist = (board, word) => {
       return true;
     }
 
-    if (i < 0 || j < 0 || i >= m || j >= n || board[i][j] !== word[wordIndex]) {
+    if (
+      i < 0 ||
+      j < 0 ||
+      i >= m ||
+      j >= n ||
+      board[i][j] !== word[wordIndex] ||
+      path.has(`${i},${j}`)
+    ) {
       return false;
     }
 
-    const tempChar = board[i][j];
-    board[i][j] = '#';
+    // const tempChar = board[i][j];
+    // board[i][j] = '#';
 
+    path.add(`${i},${j}`);
     const found =
       searchWord(i + 1, j, wordIndex + 1) ||
       searchWord(i - 1, j, wordIndex + 1) ||
       searchWord(i, j + 1, wordIndex + 1) ||
       searchWord(i, j - 1, wordIndex + 1);
-
-    board[i][j] = tempChar;
+    path.delete(`${i},${j}`);
+    // board[i][j] = tempChar;
     return found;
   };
 
