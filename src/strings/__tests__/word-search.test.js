@@ -1,7 +1,12 @@
 const exist = require('../word-search');
 
 describe('LC 79: Word Search', () => {
-  it('Case 1:', () => {
+  it(`Case 1: board = [
+      ['A', 'B', 'C', 'E'],
+      ['S', 'F', 'C', 'S'],
+      ['A', 'D', 'E', 'E'],
+    ]
+      word = 'ABCCED'`, () => {
     const board = [
       ['A', 'B', 'C', 'E'],
       ['S', 'F', 'C', 'S'],

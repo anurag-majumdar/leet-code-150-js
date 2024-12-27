@@ -1,7 +1,7 @@
 const scoreOfString = require("../score-string");
 
-describe('score of a string', () => {
-  it('Test with "hello"', async () => {
+describe('LC 3110: Score of a String', () => {
+  it('Case 1: "hello"', async () => {
     const input = "hello";
     const expectedOutput = 13;
     const actualOutput = scoreOfString(input);
@@ -9,7 +9,7 @@ describe('score of a string', () => {
   });
 
   
-  it('Test with "zaz"', async () => {
+  it('Case 2: "zaz"', async () => {
     const input = "zaz";
     const expectedOutput = 50;
     const actualOutput = scoreOfString(input);
